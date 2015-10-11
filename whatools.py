@@ -34,6 +34,43 @@ class Whatools(object):
         attachment = dict(attachment=open(attachment, "rb"))
         return requests.post(Whatools.BASE_URL + "/media/picture", params = payload, files=attachment).text
 
+    def getNickname(self):
+        payload = dict(key = self.key)
+        return requests.get(Whatools.BASE_URL + "/nickname", params = payload).text
+
+    def setNickname(self, nickname):
+        payload = dict(key = self.key, nickname = nickname)
+        return requests.post(Whatools.BASE_URL + "/nickname", params = payload).text
+
+    def deleteNickname(self):
+        payload = dict(key = self.key, nickname = "")
+        return requests.post(Whatools.BASE_URL + "/nickname", params = payload).text
+
+    def getStatusMessage(self):
+        payload = dict(key = self.key)
+        return requests.get(Whatools.BASE_URL + "/status", params = payload).text
+
+    def setStatusMessage(self, message):
+        payload = dict(key = self.key, message = message)
+        return requests.post(Whatools.BASE_URL + "/status", params = payload).text
+
+    def deleteStatusMessage(self):
+        payload = dict(key = self.key, message = "")
+        return requests.post(Whatools.BASE_URL + "/status", params = payload).text
+
+    def getAvatar(self, phone):
+        payload = dict(key = self.key, pn = phone)
+        return requests.get(Whatools.BASE_URL + "/avatar", params = payload)
+
+    def setAvatar(self, src):
+        payload = dict(key = self.key)
+        src = dict(src=open(src, "rb"))
+        return requests.post(Whatools.BASE_URL + "/avatar", params = payload, files = src).text
+
+
+
+
+
 
 
 
