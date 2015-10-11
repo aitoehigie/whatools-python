@@ -14,6 +14,7 @@ The only thing you need is including this library and then create an API object 
 your whatools API key as a parameter to the class constructor.
 
 | import whatools
+
 | wa = whatools.Whatools("Replace with API access key")
 
 Remember that you can get the API key for your whatools line by logging into Whatools and then going to Advanced settings > REST API
@@ -25,6 +26,7 @@ Logging in and out is the analog process in v3 API to subscribing and unsubscrib
 WhatsApp servers and your account, so you can be sure you never miss a single message.
 
 | wa.login()
+
 | wa.logout()
 
 Setting your nickname
