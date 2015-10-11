@@ -39,5 +39,5 @@ Setting your status message
 
 | wa.setStatusMessage("Replace with preferred status message")
 
-Setting your ava
+Setting your avatar
 
