@@ -43,3 +43,20 @@ Setting your status message
 
 Setting your avatar
 
+| wa.setAvatar("Path to image file")
+
+Getting and storing someone's avatar
+
+| wa.getAvatar("Phone number in international format")
+
+Sending a message
+
+| wa.sendMessage("API key", "Destination phone number in international format", "body of message")
+
+Sending a picture
+
+| wa.sendPicture("API key", "Destination phone number in international format", "Image caption", "absolute path to image file")
+
+
+
+
