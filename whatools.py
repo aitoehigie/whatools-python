@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 
 import requests
-#I put this here to disable the insecureplatform warning for https requests
+import os
+
+
+# Disable the insecureplatform warning for https requests
 requests.packages.urllib3.disable_warnings()
 
 class Whatools(object):
@@ -60,7 +63,15 @@ class Whatools(object):
 
     def getAvatar(self, phone):
         payload = dict(key = self.key, pn = phone)
-        return requests.get(Whatools.BASE_URL + "/avatar", params = payload)
+        r = requests.get(Whatools.BASE_URL + "/avatar", params = payload, stream = True)
+        if r.status_code == 200:
+            if not os.path.exists("./avatars"):
+                os.makedirs("./avatars")
+            with open("./avatars/%savatar.jpg" %phone,  "wb") as f:
+                for chunk in r:
+                    f.write(chunk)
+        else:
+            pass
 
     def setAvatar(self, src):
         payload = dict(key = self.key)

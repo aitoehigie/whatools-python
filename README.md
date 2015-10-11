@@ -13,6 +13,31 @@ Setting up
 The only thing you need is including this library and then create an API object by passing 
 your whatools API key as a parameter to the class constructor.
 
-** import whatools **
-** whaObject = whatools.Whatools("Replace with API access key") **
+| import whatools
+| wa = whatools.Whatools("Replace with API access key")
+
+Remember that you can get the API key for your whatools line by logging into Whatools and then going to Advanced settings > REST API
+
+Logging in and out
+
+Logging in and out is the analog process in v3 API to subscribing and unsubscribing in older API versions.
+ Nevertheless, in v3, when you log out you are effectively closing the connection between
+WhatsApp servers and your account, so you can be sure you never miss a single message.
+
+| wa.login()
+| wa.logout()
+
+Setting your nickname
+
+| wa.setNickname("Your nickname")
+
+Getting your nickname
+
+| wa.getNickname()
+
+Setting your status message
+
+| wa.setStatusMessage("Replace with preferred status message")
+
+Setting your ava
 
