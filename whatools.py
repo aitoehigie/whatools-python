@@ -4,6 +4,8 @@ import requests
 import os
 import time
 import datetime
+import calendar
+
 
 
 # Disable the insecureplatform warning for https requests
@@ -22,11 +24,11 @@ class Whatools(object):
         payload = dict(key = self.key)
         return requests.get(Whatools.BASE_URL + "/logout", params = payload).text
 
-    def getIncomingMessages(self, key, since, until):
-        #specify since and until date objects as 'DD/MM/YYYY'"
-        since = time.mktime(datetime.datetime.strptime(since, "%d/%m/%Y").timetuple())
-	until = time.mktime(datetime.datetime.strptime(until, "%d/%m/%Y").timetuple())
-        payload = dict(key = self.key, since = since, until = until)
+    def getIncomingMessages(self):
+        #specify since and until date objects as 'DD/MM/YYYY'
+        #since = time.mktime(datetime.datetime.strptime(since, "%d/%m/%Y").timetuple())
+	#until = time.mktime(datetime.datetime.strptime(until, "%d/%m/%Y").timetuple())
+        payload = dict(key = self.key)
 	return requests.get(Whatools.BASE_URL + "/message", params = payload).text
 
     def sendMessage(self, key, to, body, honor = True):
